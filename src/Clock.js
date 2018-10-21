@@ -1,3 +1,10 @@
+import React from 'react'
+import { render, unmountComponentAtNode } from 'react-dom'
+import { getClockTime } from './lib'
+
+const { Component } = React //extract JUST component variable from React module imported on line 1
+const target = document.getElementById('root')//was 'react-container'
+
 class Clock extends Component {
 constructor() {
 super()
@@ -32,3 +39,12 @@ const { hours, minutes, seconds, ampm } = this.state
   )
 }//close return
 }//close <Clock>
+
+//component ReactDom.render()s at target and then unmounts at Node when closed
+/*
+render(
+  <Clock onClose={() => unmountComponentAtNode(target)}/>,
+  target
+)
+*/
+export default Clock
